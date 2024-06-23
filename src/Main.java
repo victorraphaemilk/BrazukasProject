@@ -12,22 +12,22 @@ public class Main {
         
         int decision;
 
-        System.out.println("MENU");
-        System.out.println("1 - USUARIO");
-        System.out.println("0 - Sair");
-        decision = input.nextInt();
+        while (decision != 0){
+            System.out.println("MENU");
+            System.out.println("1 - USUARIO");
+            System.out.println("0 - Sair");
+            decision = input.nextInt();
 
-        switch (decision) {
-            case 1:
-                User.PrintQuestionUser();
-                
+            switch (decision) {
+                case 1:
+                    User.PrintQuestionUser();
 
-                break;
-        
-            case 0:
-                break;
-        }
 
-        
-    }
-}
+                    break;
+
+                case 0:
+                    break;
+            }
+        } // End main while
+    } // End static method main
+} // End class Main
