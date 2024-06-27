@@ -1,4 +1,4 @@
-package BrazukasProject;
+package src;
 
 import java.util.Scanner;
 
@@ -10,17 +10,21 @@ public class Main {
         
         Scanner input = new Scanner(System.in);
         
-        int decision;
+        int decision = 999;
 
         while (decision != 0){
-            System.out.println("MENU");
-            System.out.println("1 - USUARIO");
-            System.out.println("0 - Sair");
+            StaticMethods.Menu();
             decision = input.nextInt();
 
             switch (decision) {
                 case 1:
-                    User.PrintQuestionUser();
+                    StaticMethods.PrintQuestionUser();
+                    int LoginOrLoad = input.nextInt();
+                    
+                    if (LoginOrLoad == 1) {
+                        User usuario = User.CreaterUser();
+                        usuario.PrintRegisteredUser();
+                    }
 
 
                     break;
