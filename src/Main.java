@@ -10,6 +10,7 @@ public class Main {
         
         Scanner input = new Scanner(System.in);
         
+        //Acho melhor fazer um do while
         int decision = 999;
 
         while (decision != 0){
