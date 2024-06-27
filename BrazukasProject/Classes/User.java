@@ -1,4 +1,5 @@
 package BrazukasProject.Classes;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
@@ -6,13 +7,19 @@ public class User {
     private String name;
     private int password;
     private int code; 
+
+
+    private static ArrayList<User> userlist = new ArrayList<>();
      
 
     public User(String name, int password){
+        
         this.name = name;
         this.password = password;
         this.code = numberOfUsers;
         ++numberOfUsers;
+        
+        userlist.add(this);
     }
     public static User CreaterUser (){
         Scanner input = new Scanner(System.in);
