@@ -8,7 +8,7 @@ public class User {
     private int password;
     private int code; 
 
-
+    //Array para guardar usuarios
     private static ArrayList<User> userlist = new ArrayList<>();
      
 
