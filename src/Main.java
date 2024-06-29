@@ -1,38 +1,221 @@
-package src;
+package BrazukasProject;
+
+import BrazukasProject.Classes.Gerente;
+import BrazukasProject.Classes.Jogador;
+import BrazukasProject.Classes.Tecnico;
 
 import java.util.Scanner;
 
-import BrazukasProject.Classes.*;
-
-
 public class Main {
-    public static void main(String[] args) {
-        
-        Scanner input = new Scanner(System.in);
-        
-        //Acho melhor fazer um do while
-        int decision = 999;
+    static Scanner sc = new Scanner(System.in);
+    static Gerente gerente = new Gerente();
+    static Tecnico tecnico = new Tecnico();
 
-        while (decision != 0){
-            StaticMethods.Menu();
-            decision = input.nextInt();
+    public static void main(String[] args) throws InterruptedException {
 
-            switch (decision) {
+
+        int opcao;
+        do {
+            menuInicial();
+            System.out.print("Digite sua opção: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
                 case 1:
-                    StaticMethods.PrintQuestionUser();
-                    int LoginOrLoad = input.nextInt();
-                    
-                    if (LoginOrLoad == 1) {
-                        User usuario = User.CreaterUser();
-                        usuario.PrintRegisteredUser();
-                    }
+                    int opcaoGerente;
+                    do {
+                        menuGerente();
+                        opcaoGerente = sc.nextInt();
 
+                        switch (opcaoGerente) {
+                            case 1:
+                                gerente.mostrarJogadores();
+                                Thread.sleep(2000);
+                                break;
+                            case 2:
+                                gerente.adicionarAoTime(Jogador.CriarJogador());
+                                break;
+                            case 3:
+                                removerJogador();
+                                //gerente.removerDoTime(nome);
+                                break;
+                            case 0:
+                                System.out.println("Voltando para o menu inicial...");
+                                Thread.sleep(1500);
+                                break;
+                            default:
+                                System.err.println("Opção inválida, digite novamente");
+                                Thread.sleep(2000);
+                                break;
+                        }
+                    } while (opcaoGerente != 0);
 
                     break;
+                case 2:
+                    int opcaoTecnico;
+                    do {
+                        menuTecnico();
+                        opcaoTecnico = sc.nextInt();
 
+                        switch (opcaoTecnico) {
+                            case 1:
+                                adcionarTiular();
+                                break;
+                            case 2:
+                                removerTiular();
+                                break;
+                            case 3:
+                                tecnico.mostrarJogadores();
+                                Thread.sleep(1500);
+                                break;
+                            case 0:
+                                System.out.println("Voltando para o menu inicial...");
+                                Thread.sleep(1500);
+                                break;
+                            default:
+                                System.err.println("Opção inválida, digite novamente");
+                                Thread.sleep(2000);
+                                break;
+
+                        }
+                    } while (opcaoTecnico != 0);
+                    break;
                 case 0:
+                    System.out.println("Finalizando o programa...");
+                    Thread.sleep(1500);
                     break;
+                default:
+                    System.err.println("Opção inválida, digite novamente");
+                    Thread.sleep(2000);
             }
-        } // End main while
+        } while (opcao != 0);
     } // End static method main
+
+    public static void menuInicial() {
+        System.out.println("                    $$$$$$$\\  $$$$$$$\\   $$$$$$\\  $$$$$$$$\\ $$\\   $$\\ $$\\   $$\\  $$$$$$\\   $$$$$$\\  $$$$$$$$\\  $$$$$$\\   $$$$$$\\ $$$$$$$$\\ \n" +
+                "                  $$  __$$\\ $$  __$$\\ $$  __$$\\ \\____$$  |$$ |  $$ |$$ | $$  |$$  __$$\\ $$  __$$\\ $$  _____|$$  __$$\\ $$  __$$\\\\__$$  __|\n" +
+                "                  $$ |  $$ |$$ |  $$ |$$ /  $$ |    $$  / $$ |  $$ |$$ |$$  / $$ /  $$ |$$ /  \\__|$$ |      $$ /  $$ |$$ /  $$ |  $$ |   \n" +
+                "                  $$$$$$$\\ |$$$$$$$  |$$$$$$$$ |   $$  /  $$ |  $$ |$$$$$  /  $$$$$$$$ |\\$$$$$$\\  $$$$$\\    $$ |  $$ |$$ |  $$ |  $$ |   \n" +
+                "                  $$  __$$\\ $$  __$$< $$  __$$ |  $$  /   $$ |  $$ |$$  $$<   $$  __$$ | \\____$$\\ $$  __|   $$ |  $$ |$$ |  $$ |  $$ |   \n" +
+                "                  $$ |  $$ |$$ |  $$ |$$ |  $$ | $$  /    $$ |  $$ |$$ |\\$$\\  $$ |  $$ |$$\\   $$ |$$ |      $$ |  $$ |$$ |  $$ |  $$ |   \n" +
+                "                  $$$$$$$  |$$ |  $$ |$$ |  $$ |$$$$$$$$\\ \\$$$$$$  |$$ | \\$$\\ $$ |  $$ |\\$$$$$$  |$$ |       $$$$$$  | $$$$$$  |  $$ |   \n" +
+                "                  \\_______/ \\__|  \\__|\\__|  \\__|\\________| \\______/ \\__|  \\__|\\__|  \\__| \\______/ \\__|       \\______/  \\______/   \\__|   \n" +
+                "                                                                                                                       \n" +
+                "                                                           SEU SISTEMA DE GERENCIAMENTO FAVORITO!!                                                       \n" +
+                "                                                                                                                       ");
+
+        System.out.println("1 - Entrar como gerente");
+        System.out.println("2 - Entrar como técnico");
+        System.out.println("0 - Sair");
+    }
+
+    public static void menuGerente() {
+        System.out.println("\n=== Menu do Gerente ===");
+        System.out.println("1 - Visualizar Jogadores");
+        System.out.println("2 - Adicionar Jogador");
+        System.out.println("3 - Remover Jogador");
+        System.out.println("0 - Sair");
+        System.out.print("Escolha uma opção: ");
+    }
+
+    public static void removerNomeOuCamisa() {
+        System.out.println("Escolha se deseja pesquisar por Nome ou Camisa");
+        System.out.println("1 - Remover por nome ");
+        System.out.println("2 - Remover por numero da camisa ");
+        System.out.print("Digite sua opção: ");
+    }
+
+    public static void adicionarNomeOuCamisa() {
+        System.out.println("Escolha se deseja pesquisar por Nome ou Camisa");
+        System.out.println("1 - Adcionar por nome ");
+        System.out.println("2 - Adcionar por numero da camisa ");
+        System.out.print("Digite sua opção: ");
+    }
+
+    public static void removerJogador() {
+
+        int opcao;
+        boolean loop = true;
+        while (loop) {
+            removerNomeOuCamisa();
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.print("Diga o nome do jogador: ");
+                    String nome = sc.next();
+                    gerente.removerDoTime(nome);
+                    loop = false;
+                    break;
+                case 2:
+                    System.out.print("Diga o numero do jogador: ");
+                    int numero = sc.nextInt();
+                    gerente.removerDoTime(numero);
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida, digite novamente!!");
+
+            }
+        }
+    }
+
+    public static void adcionarTiular() {
+        int opcao;
+        boolean loop = true;
+        while (loop) {
+            adicionarNomeOuCamisa();
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.print("Diga o nome do jogador: ");
+                    String nome = sc.next();
+                    tecnico.adicionarTitular(nome);
+                    loop = false;
+                    break;
+                case 2:
+                    System.out.print("Diga o numero do jogador: ");
+                    int numero = sc.nextInt();
+                    tecnico.adicionarTitular(numero);
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida, digite novamente!!");
+
+            }
+        }
+    }
+
+    public static void removerTiular() {
+        int opcao;
+        boolean loop = true;
+        while (loop) {
+            removerNomeOuCamisa();
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.print("Diga o nome do jogador: ");
+                    String nome = sc.next();
+                    tecnico.removerTitular(nome);
+                    loop = false;
+                    break;
+                case 2:
+                    System.out.print("Diga o numero do jogador: ");
+                    int numero = sc.nextInt();
+                    tecnico.removerTitular(numero);
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida, digite novamente!!");
+
+            }
+        }
+    }
+
+    public static void menuTecnico() {
+        System.out.println("\n=== Menu do Técnico ===");
+        System.out.println("1 - Adicionar Jogador titular");
+        System.out.println("2 - Remover Jogador titular");
+        System.out.println("3 - Visualizar jogadores");
+        System.out.println("0 - Sair");
+    }
 } // End class Main
