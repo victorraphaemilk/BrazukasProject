@@ -1,8 +1,9 @@
 package BrazukasProject.Classes;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Jogador {
+public class Jogador implements Serializable {
     private static int QuatidadeDeJogadores;
     private String nome;
     private int numero;

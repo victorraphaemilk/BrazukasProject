@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-
+        Gerente.CarregarTimes();
         int opcao;
         do {
             menuInicial();
@@ -89,6 +89,7 @@ public class Main {
                     Thread.sleep(2000);
             }
         } while (opcao != 0);
+       gerente.GravarTimes(gerente);
     } // End static method main
 
     public static void menuInicial() {

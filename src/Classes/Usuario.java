@@ -1,9 +1,10 @@
 package BrazukasProject.Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
     protected static List<Jogador> time;
     protected static List<Jogador> timeTitular;
     protected static List<Jogador> timeReserva;
