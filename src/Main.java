@@ -15,11 +15,22 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Gerente.CarregarTimes();
-        int opcao;
+        int opcao = 0;
+
         do {
             menuInicial();
             System.out.print("Digite sua opção: ");
-            opcao = sc.nextInt();
+            
+            while (true) {
+                try {
+                    opcao = sc.nextInt();
+                    break; // Se a entrada for válida, sair do loop
+                } catch (Exception e) {
+                    System.out.println("Digite um inteiro: ");
+                    sc.next(); // Consumir a entrada inválida
+                }
+            }
+            
 
             switch (opcao) {
                 case 1:

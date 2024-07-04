@@ -78,7 +78,7 @@ public class Gerente extends Usuario implements Serializable  {
             System.out.println("Times carregados com sucessor");
             Thread.sleep(2000);
         } catch (Exception e) {
-            System.out.println("Houve um erro para carregador os times");
+            System.out.println("Houve um erro para carregador os times"); 
         }
     }
 }
