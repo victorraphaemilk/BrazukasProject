@@ -55,6 +55,8 @@ public class Gerente extends Usuario implements Serializable  {
             oos.writeObject(time);
             oos.writeObject(timeReserva);
             oos.writeObject(timeTitular);
+            oos.writeInt(Jogador.getQuatidadeDeJogadores());
+
             System.out.println("Times salvos com sucesso");
         } catch (Exception e) {
             System.out.println("Houve um erro para salvar os times");
@@ -68,6 +70,10 @@ public class Gerente extends Usuario implements Serializable  {
             time = (List<Jogador>) ois.readObject();
             timeReserva = (List<Jogador>) ois.readObject();
             timeTitular = (List<Jogador>) ois.readObject();
+            
+            int QuatidadeDeJogadores = ois.readInt();
+            Jogador.setQuatidadeDeJogadores(QuatidadeDeJogadores);
+
             
             System.out.println("Times carregados com sucessor");
             Thread.sleep(2000);

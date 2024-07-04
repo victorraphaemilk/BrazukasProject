@@ -19,6 +19,13 @@ public class Jogador implements Serializable {
 
         //Usuario.time.add(this);
     }
+    public static int getQuatidadeDeJogadores() {
+        return QuatidadeDeJogadores;
+    }
+    
+    public static void setQuatidadeDeJogadores(int quatidadeDeJogadores) {
+        QuatidadeDeJogadores = quatidadeDeJogadores;
+    }
 
     public String getNome() {
         return nome;

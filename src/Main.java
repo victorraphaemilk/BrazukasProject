@@ -7,10 +7,11 @@ import BrazukasProject.Classes.Tecnico;
 import java.util.Scanner;
 
 public class Main {
+    
     static Scanner sc = new Scanner(System.in);
     static Gerente gerente = new Gerente();
     static Tecnico tecnico = new Tecnico();
-
+    
     public static void main(String[] args) throws InterruptedException {
 
         Gerente.CarregarTimes();
