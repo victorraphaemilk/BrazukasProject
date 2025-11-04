@@ -39,6 +39,10 @@ public class Jogador implements Serializable {
         return codigo;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public String getPosicao() {
         return posicao;
     }
